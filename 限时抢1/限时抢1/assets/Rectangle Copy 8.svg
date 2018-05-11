@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle Copy 8</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="8.8817842e-16 0 862 0 862 212 8.8817842e-16 212"></polygon>
+        <filter x="-4.4%" y="-16.3%" width="108.7%" height="135.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0901960784   0 0 0 0 0.0901960784   0 0 0 0 0.258823529  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="活动任务（有创建权限）" transform="translate(-600.000000, -883.000000)">
+            <rect id="Rectangle-2" fill="#F3F3F5" x="0" y="0" width="750" height="1334"></rect>
+            <polygon id="Rectangle-7-Copy-2" fill="#FFFFFF" points="0 248 750 248 750 1332 0 1332"></polygon>
+            <g id="3" transform="translate(-142.000000, 822.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                    <use fill="#1C85FF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="Group-4" mask="url(#mask-2)" fill="#FFFFFF">
+                    <g transform="translate(706.000000, 59.000000)" id="Fill-1">
+                        <path d="M53.4975,10.0345459 L41,10.0345459 L41,7 L53.4975,7 L53.4975,4.5 L58.4975,4.5 L58.4975,7 L71,7 L71,10.0345459 L58.4975,10.0345459 L53.4975,10.0345459 Z M47,36.9975 L65.9975,36.9975 L65.9975,15.0628662 L47,15.0628662 L47,36.9975 Z M69.005249,15.0269775 L69.005249,34.5 C69.005249,34.5016667 69.005249,36.3358138 69.005249,40.0024414 L43.0083008,40.0024414 L43.0083008,15.0269775 L41,15.0269775 L41,12 L71,12 L71,15.0269775 L69.005249,15.0269775 Z M59.0334473,32 L61.9975,32 L61.9975,15.05896 L59.0334473,15.05896 L59.0334473,32 Z M50.9975,32 L54.0338135,32 L54.0338135,15.0615234 L50.9975,15.0615234 L50.9975,32 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
