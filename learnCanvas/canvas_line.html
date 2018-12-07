@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>line</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="
+    border: 1px solid;
+"></canvas>
+    <script>
+        let canvas = document.getElementById('canvas');
+        let context = canvas.getContext('2d');
+        canvas.width = 1024;
+        canvas.height = 768;
+
+        context.beginPath()
+        context.moveTo(100, 100);//设置起点
+        context.lineTo(700, 700); //
+        // 状态， 从（100,100）到(700,700);
+        context.lineTo(100, 700);
+        context.lineTo(100, 98)
+        context.lineWidth = 5
+        context.strokeStyle = "red"; //可以用任意的css样式
+        
+        // context.fillStyle='rgb(2,100,30';//填充色
+        // context.fill();//绘制动作，填充
+
+        context.stroke(); //真正去绘制的方法
+        // canvas 坐标系，以canvas左上角为原点，向左为x轴正方向，向下为y轴的正方向
+        context.closePath();
+        
+        context.beginPath();
+         context.strokeStyle = "black"; //可以用任意的css样式
+         context.moveTo(700,0);
+         context.lineTo(100,700);
+        context.stroke(); //真正去绘制的方法
+        // canvas 坐标系，以canvas左上角为原点，向左为x轴正方向，向下为y轴的正方向
+        context.closePath();
+        // 多个strokeStyle，会被最后的覆盖
+    </script>
+</body>
+
+</html>
