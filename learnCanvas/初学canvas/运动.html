@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运动</title>
+    <style>
+        #mycanvas {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mycanvas" width='500' height='500'></canvas>
+    <script>
+        let mycanvas = document.getElementById('mycanvas');
+        let ctx = mycanvas.getContext('2d');
+        var x = 100,y=100;
+        setInterval(() => {
+            ctx.clearRect(0,0,500,500);//清屏
+            // 重新绘制
+            ctx.beginPath();
+            ctx.arc(x++, --y, 50, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fillStyle = 'green';
+            ctx.fill();
+        },50)
+    </script>
+</body>
+
+</html>

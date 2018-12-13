@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #mycanvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mycanvas" width='600' height='400'></canvas>
+    <script>
+       let mycanvas = document.getElementById('mycanvas');
+       let ctx = mycanvas.getContext('2d');
+       ctx.fillRect(300,300,90,100);
+       ctx.beginPath();
+       ctx.arc(100,100,50,0,Math*PI*2);
+       ctx.fillStyle='blue';
+       ctx.fill()
+       ctx.closePath();
+//  // 使用Dom方法得到画布
+//  let mycanvas = document.getElementById('mycanvas');
+//         // 得到画布上下文ctx
+//         let ctx = mycanvas.getContext("2d");
+//         // 画各种东西，用ctx调用方法
+//         // 从点(100,100)开始，宽300，高30
+//         ctx.fillRect(200,100,300,30);
+            
+
+    </script>
+</body>
+</html>

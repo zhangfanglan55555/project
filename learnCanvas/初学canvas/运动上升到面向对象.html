@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运动上升到面向对象</title>
+    <style>
+        #mycanvas {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mycanvas" width='500' height='500'></canvas>
+    <script>
+        let mycanvas = document.getElementById('mycanvas');
+        let ctx = mycanvas.getContext('2d');
+
+
+        function Ball(x, y, r, speed) {
+            this.x = x;
+            this.y = y;
+            this.r = r;
+            this.speed = speed;
+            actorsArr.push(this);
+        }
+        // 运动绘制
+        Ball.prototype.render = function () {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fill();
+
+        }
+        // 更新
+        Ball.prototype.update = function () {
+            this.y += this.speed;
+        }
+        // 数组
+        var actorsArr = [];
+        // 帧编号
+        var fno = 0;
+
+        // 实例化一些小球
+        new Ball(100, 0, 50, 50);
+        new Ball(200, 0, 20, 40)
+        new Ball(300, 0, 10, 30)
+        
+        setInterval(() => {
+            ctx.clearRect(0, 0, 500, 500);
+            fno++;
+            ctx.fillText(fno, 100, 100)
+            actorsArr.map((item, index) => {
+                actorsArr[index].update();
+                actorsArr[index].render();
+            })
+        }, 20)
+    </script>
+</body>
+
+</html>

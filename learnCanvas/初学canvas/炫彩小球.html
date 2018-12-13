@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运动上升到面向对象</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: black;
+            overflow: hidden;
+        }
+
+        #mycanvas {
+            border: 2px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mycanvas"></canvas>
+    <script>
+        let mycanvas = document.getElementById('mycanvas');
+        let ctx = mycanvas.getContext('2d');
+        // 设置画布满屏
+        mycanvas.width = document.documentElement.clientWidth;
+        mycanvas.height = document.documentElement.clientHeight;
+        // 小球数组
+        var ballArray = [];
+        // 小球类
+        class Ball {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.r = 30;
+                // this.color = "rgb("+parseInt(Math.random()*256) + ",";//颜色
+                this.color = `rgb(${parseInt(Math.random()*256)},${parseInt(Math.random()*256)},${parseInt(Math.random()*256)})`
+                this.dx = Math.random() * 8 - 4; //x的变化值
+                this.dy = Math.random() * 8 - 4; //y的变化值
+                ballArray.push(this);
+            }
+            render() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+                ctx.closePath();
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                this.x += this.dx;
+                this.y += this.dy;
+                this.r--; //如果半径为0，此时从数组中删除自己
+                if (this.r < 0) {
+                    this.godie();
+                }
+            }
+            godie() {
+                ballArray.map((item, i) => {
+                    if (item == this) {
+                        ballArray.splice(i, 1)
+                    }
+                })
+            }
+        }
+        // // 实例化一些小球
+        // new Ball(500, 0, 50, 50);
+        // new Ball(200, 0, 20, 40)
+        // new Ball(300, 0, 10, 30)
+        // 监听
+        mycanvas.onmousemove = (event)=>[
+            new Ball(event.clientX,event.clientY)
+        ]
+        setInterval(() => {
+            ctx.clearRect(0, 0, mycanvas.width, mycanvas.height);
+            ballArray.map((item, i) => {
+                ballArray[i].update();
+                ballArray[i] && ballArray[i].render();
+            })
+        }, 20); //电脑一般每秒读50帧
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>坐标系转换</title>
+    <style>
+        #canvas {
+            box-shadow: 10px 10px 10px 10px red;
+            position: absolute;
+            top: 10%;
+            left: 15%;
+        }
+    </style>
+    <script >
+        let C = {};
+        // 获取鼠标在元素上的坐标
+        C.getOffset = function (ele) {
+            let mouse = {
+                x: 0,
+                y: 0
+            };
+            ele.addEventListener('mousemove', function (e) {
+                let {
+                    x,
+                    y
+                } =  C.eventWrapper(e);
+                mouse.x = x;
+                mouse.y = y;
+            })
+        }
+        // 坐标系转换
+        C.eventWrapper = function (ev) {
+            let {
+                pageX,
+                pageY,
+                target
+            } = ev;
+            let {
+                left,
+                top
+            } = target.getBoundingClientRect();
+            return {
+                x: pageX - left,
+                y: pageY - top
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width='800' height="600"></canvas>
+    <script>
+      
+    </script>
+</body>
+
+</html>
