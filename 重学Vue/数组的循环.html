@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            vue提供了一个指令v-for 解决循环问题 更高效，会复用原有的结构
+            要循环谁就在谁上面加v-for
+            默认是：value of 数组 (value,index) in 数组
+         -->
+        <ul>
+            <li v-for='(fruit,index) in fruits'>{{index+1}}.{{fruit.name}} 
+                <ul>
+                    <li v-for='(item,childIndex) in fruit.color'>{{index+1}}.{{childIndex}} {{item}}</li>
+                </ul>
+            </li>
+            <div v-for='str in "cccc"'>{{str}}</div>
+            <div v-for='c in 5'>{{c}}</div>
+        </ul>
+    </div>
+    <script src="./node_modules/vue/dist/vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                fruits: [{
+                    name: '香蕉',
+                    color: ['green', 'yello']
+                }, {
+                    name: '苹果',
+                    color: ['red', 'green','yello']
+                }, {
+                    name: '西瓜',
+                    color: [ 'pink']
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>

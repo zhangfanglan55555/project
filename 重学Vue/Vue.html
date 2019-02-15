@@ -1,0 +1,73 @@
+<!-- /**
+ * 框架和库
+ * 库：jq、zepto、animate.css
+ * 框架：Angular、React、Vue(拥有完整的解决方案)
+ * Vue:渐进式框架
+ * Vue全家桶：vueJS+vue-router+vueX+axios
+ * Vue特点：核心只关注视图层、轻量灵活、适用于移动端项目、渐进式框架
+ * 渐进式的理解：
+ * 声明式渲染（无需关心如何实现）
+ * 组件系统
+ * 客户端路由（vue-router)
+ * 大规模状态管理（vuex)
+ * 构建工具（vue-cli)
+ * 
+ * Vue的两个核心点：
+ * 响应的数据变化：
+ *      当数据发生变化->视图层自动更新
+ * 组合的视图组件
+ *      UI页面映射为组件数
+ *      划分组件可维护、可复用、可测试
+ * MVC
+ * M:model数据
+ * V:view 视图
+ * C:controller控制器
+ * MVVM(Angular、Vue)
+ * M:model数据
+ * V:view 视图
+ * viewModel 视图模型
+ * 
+ * Object.defineProperty(es5)
+ * 不支持ie8及以下
+ */
+/**
+ * 表单元素：input checkbox textarea radio select
+ * Vue的“指令” 只是dom上的行间属性，vue给这类属性赋予了一定的意义来实现特殊的功能，所有指令都以v-开头，value属性默认情况下会被vue
+ * 忽略掉，selected checked都没有意义
+ * v-model:会将msg的值赋予输入框，输入框的值改变了会影响数据msg
+    v-text === {{}}
+   v-text:避免网络慢或者强刷新导致的{{}}这种显示
+   v-once:只绑定（渲染）一次，不受数据改变而改变。
+   v-html:把html字符串当做html渲染,一定是可信任的html
+ */ -->
+<!-- <template> -->
+    <!-- 用法 -->
+    <div id='app'>
+        <input type='text' v-model='msg' />
+        <div v-text = 'msg'></div>
+        <div>{{msg}}</div>
+        <div v-once>{{msg}}</div>
+        <div v-html='p'></div>
+    </div>
+<!-- </template> -->
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el:'app',
+        data:{
+            msg:"hello",
+            p:'<p>hello</p>'
+        }
+    })
+</script>
+
+<!-- 用原生js实现 -->
+<!-- <script>
+    let obj = {};
+    Object.defineProperty(obj,'name',{
+       value:'1',
+       configurable:true,//是否可删除
+       writable:true,//是否可读写
+       enumerable:true,//是否可枚举
+    })
+</script> -->
